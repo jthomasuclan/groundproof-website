@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20261020">
   <link rel="preload" href="assets/hero-poster.jpg" as="image">
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -69,24 +69,9 @@
   <main id="main">
 
     <!-- 2. Hero -->
-    <section class="hero section-dark" aria-labelledby="hero-title">
-      <div class="hero-media">
-        <!-- Decorative background loop, edited from public-domain NASA footage. Played by js/main.js unless the visitor prefers reduced motion. -->
-        <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-          <source src="assets/hero-720.mp4" type="video/mp4" media="(max-width: 767px)">
-          <source src="assets/hero-1080.mp4" type="video/mp4">
-        </video>
-        <div class="hero-media-bar">
-          <p class="video-credit">CubeSat animation: NASA Ames Research Center</p>
-          <button class="video-toggle" type="button" aria-pressed="false" aria-label="Pause background video" hidden>
-            <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6v12M15 6v12"/></svg>
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="container hero-inner">
-        <div class="hero-panel">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy-col grid-texture">
+        <div class="hero-copy">
           <p class="eyebrow reveal">Pre-launch test management for small satellite teams</p>
           <h1 class="hero-title reveal" id="hero-title">Satellite testing, faster to plan and easier to prove</h1>
           <p class="hero-sub reveal">Plan, book and analyse vibration and thermal vacuum tests across UK labs, with AI that flags problems while the test is still running.</p>
@@ -99,6 +84,21 @@
             <li>Thermal vacuum</li>
             <li>UK test labs</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <!-- Decorative loop edited from public-domain NASA/JPL footage of the Sentinel-6 satellite. Played by js/main.js unless the visitor prefers reduced motion. -->
+        <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="assets/hero-mobile.mp4#t=1" type="video/mp4" media="(max-width: 767px)">
+          <source src="assets/hero-desktop.mp4#t=1" type="video/mp4">
+        </video>
+        <div class="hero-media-bar">
+          <p class="video-credit">Satellite animation courtesy NASA/JPL-Caltech</p>
+          <button class="video-toggle" type="button" aria-label="Pause background video" hidden>
+            <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6v12M15 6v12"/></svg>
+            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -161,33 +161,79 @@
           <p class="lead">One platform takes your test campaign from first plan to final evidence, in four steps.</p>
         </div>
 
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-num">01</span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="4" width="14" height="17"/><path d="M9 4V2h6v2M8 10l1.5 1.5L12 9M8 16l1.5 1.5L12 15M14 10.5h2M14 16.5h2"/></svg>
-            <h3>Plan</h3>
-            <p>Set out your campaign in one shared plan: test levels, sequence and the qualification requirements you need to meet.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step-num">02</span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>
-            <h3>Book</h3>
-            <p>See availability across UK test labs and book a slot in one place. No more chasing calendars.</p>
-          </li>
-          <li class="step step-feature reveal">
-            <span class="step-num">03</span>
-            <span class="tag tag-accent">Our differentiator</span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12h4l2.5-7 4 14 3-10 2 3h4.5"/></svg>
-            <h3>Analyse</h3>
-            <p>Our AI watches test data live and flags problems while the test is still running, not after it ends. So you can act before the run is over.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step-num">04</span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg>
-            <h3>Prove</h3>
-            <p>Turn results into a clear, traceable record of what was tested and how it performed, ready to share.</p>
-          </li>
-        </ol>
+        <div class="how-layout">
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step-num">01</span>
+              <div>
+                <h3>Plan</h3>
+                <p>Set out your campaign in one shared plan: test levels, sequence and the qualification requirements you need to meet.</p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">02</span>
+              <div>
+                <h3>Book</h3>
+                <p>See availability across UK test labs and book a slot in one place. No more chasing calendars.</p>
+              </div>
+            </li>
+            <li class="step step-feature reveal">
+              <span class="step-num">03</span>
+              <div>
+                <h3>Analyse <span class="tag tag-accent">Our differentiator</span></h3>
+                <p>Our AI watches test data live and flags problems while the test is still running, not after it ends. So you can act before the run is over.</p>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">04</span>
+              <div>
+                <h3>Prove</h3>
+                <p>Turn results into a clear, traceable record of what was tested and how it performed, ready to share.</p>
+              </div>
+            </li>
+          </ol>
+
+          <figure class="concept reveal">
+            <div class="concept-window" role="img" aria-label="Product concept: a live vibration test run in Groundproof, with the AI flagging an unusual response while the test is running">
+              <div class="concept-bar" aria-hidden="true">
+                <span class="concept-dots"><i></i><i></i><i></i></span>
+                <span>Example campaign</span>
+              </div>
+              <div class="concept-body" aria-hidden="true">
+                <ul class="concept-nav">
+                  <li class="done">Plan</li>
+                  <li class="done">Book</li>
+                  <li class="active">Analyse</li>
+                  <li>Prove</li>
+                </ul>
+                <div class="concept-main">
+                  <div class="concept-head">
+                    <div>
+                      <p class="concept-kicker">Vibration test, Z axis</p>
+                      <p class="concept-title">Random vibration run</p>
+                    </div>
+                    <span class="concept-live">Live</span>
+                  </div>
+                  <svg class="concept-chart" viewBox="0 0 600 180" preserveAspectRatio="none">
+                    <path class="grid" d="M0 45H600M0 90H600M0 135H600M150 0V180M300 0V180M450 0V180"/>
+                    <polyline class="trace" points="0,92 12,86 24,97 36,84 48,95 60,88 72,99 84,83 96,94 108,87 120,98 132,85 144,93 156,88 168,97 180,84 192,95 204,86 216,96 228,85 240,92 252,88 264,99 276,83 288,94 300,87 312,96 324,86 336,91 348,89 360,97 372,84"/>
+                    <polyline class="trace trace-flag" points="372,84 380,60 388,122 396,48 404,130 412,58 420,116 428,70 436,104 444,82"/>
+                    <polyline class="trace" points="444,82 456,95 468,87 480,96 492,85 504,93 516,88 528,97 540,84 552,94 564,87 576,96 588,86 600,92"/>
+                    <rect class="flag-zone" x="372" y="0" width="72" height="180"/>
+                  </svg>
+                  <div class="concept-alert">
+                    <span class="concept-alert-mark"></span>
+                    <div>
+                      <p class="concept-alert-title">Unusual response flagged</p>
+                      <p class="concept-alert-text">Flagged during the run. Review before the next test.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption>Product concept with illustrative data. Groundproof is in development.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -487,6 +533,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=20261020" defer></script>
 </body>
 </html>
