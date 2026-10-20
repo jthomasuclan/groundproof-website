@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var CONTACT_EMAIL = 'jthomas36@lancashire.ac.uk';
+  var CONTACT_EMAIL = 'hello@groundproof.org.uk';
 
   /* ---------- Mobile navigation ---------- */
   var header = document.querySelector('.site-header');
