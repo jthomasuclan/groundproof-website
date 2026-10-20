@@ -568,7 +568,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .note p { color: var(--on-dark-muted); font-size: 16px; }
 .note strong { color: var(--white); font-weight: 600; }
 
+.proof-figure { margin: 64px 0 0; }
+.trace-panel {
+  padding: 16px;
+  background: var(--navy-dark);
+  border: 1px solid var(--on-dark-line);
+}
+.trace-panel img { width: 100%; height: auto; }
+.proof-figure figcaption {
+  margin-top: 16px;
+  color: var(--on-dark-muted);
+  font-size: 15px;
+}
+.proof-figure + .note { margin-top: 40px; }
+
 @media (min-width: 768px) {
+  .trace-panel { padding: 28px 32px; }
   .stats { grid-template-columns: repeat(3, 1fr); }
   .note { padding: 28px 32px; }
 }
