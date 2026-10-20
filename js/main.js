@@ -186,6 +186,50 @@
     });
   }
 
+  /* ---------- Hero background video ---------- */
+  var video = document.querySelector('.hero-video');
+  var videoToggle = document.querySelector('.video-toggle');
+
+  if (video && videoToggle) {
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pausedByVisitor = prefersReducedMotion;
+
+    function showState() {
+      var paused = video.paused;
+      videoToggle.setAttribute('data-state', paused ? 'paused' : 'playing');
+      videoToggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+    }
+
+    function tryPlay() {
+      var attempt = video.play();
+      // Some browsers block autoplay (for example in low power mode); the poster stays and the button offers play.
+      if (attempt && attempt.catch) attempt.catch(showState);
+    }
+
+    video.addEventListener('play', showState);
+    video.addEventListener('pause', showState);
+    videoToggle.hidden = false;
+    showState();
+
+    videoToggle.addEventListener('click', function () {
+      pausedByVisitor = !video.paused;
+      if (video.paused) tryPlay(); else video.pause();
+    });
+
+    // Only play while the hero is on screen, to save battery and data.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          if (!pausedByVisitor) tryPlay();
+        } else if (!video.paused) {
+          video.pause();
+        }
+      }).observe(video);
+    } else if (!pausedByVisitor) {
+      tryPlay();
+    }
+  }
+
   /* ---------- Footer year ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());

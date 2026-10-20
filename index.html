@@ -31,6 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" href="assets/hero-poster.jpg" as="image">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -68,9 +69,24 @@
   <main id="main">
 
     <!-- 2. Hero -->
-    <section class="hero section-dark grid-texture" aria-labelledby="hero-title">
+    <section class="hero section-dark" aria-labelledby="hero-title">
+      <div class="hero-media">
+        <!-- Decorative background loop, edited from public-domain NASA footage. Played by js/main.js unless the visitor prefers reduced motion. -->
+        <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="assets/hero-720.mp4" type="video/mp4" media="(max-width: 767px)">
+          <source src="assets/hero-1080.mp4" type="video/mp4">
+        </video>
+        <div class="hero-media-bar">
+          <p class="video-credit">CubeSat animation: NASA Ames Research Center</p>
+          <button class="video-toggle" type="button" aria-pressed="false" aria-label="Pause background video" hidden>
+            <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6v12M15 6v12"/></svg>
+            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg>
+          </button>
+        </div>
+      </div>
+
       <div class="container hero-inner">
-        <div class="hero-copy">
+        <div class="hero-panel">
           <p class="eyebrow reveal">Pre-launch test management for small satellite teams</p>
           <h1 class="hero-title reveal" id="hero-title">Satellite testing, faster to plan and easier to prove</h1>
           <p class="hero-sub reveal">Plan, book and analyse vibration and thermal vacuum tests across UK labs, with AI that flags problems while the test is still running.</p>
@@ -83,13 +99,6 @@
             <li>Thermal vacuum</li>
             <li>UK test labs</li>
           </ul>
-        </div>
-        <div class="hero-art reveal">
-          <svg class="illustration" viewBox="-262 -372 594 508" role="img" aria-labelledby="illus-title illus-desc">
-            <title id="illus-title">CubeSat on a shaker table</title>
-            <desc id="illus-desc">Line drawing of a small CubeSat bolted to a vibration shaker table, with an accelerometer cable running to a live data panel that flags a spike in the signal.</desc>
-            <polygon class="ln" points="216.5,0.0 0.0,125.0 0.0,99.0 216.5,-26.0"/><polygon class="ln" points="-216.5,0.0 0.0,125.0 0.0,99.0 -216.5,-26.0"/><polygon class="ln" points="0.0,-151.0 216.5,-26.0 0.0,99.0 -216.5,-26.0"/><path class="ln" d="M-115.1,-42.0 L-115.1,-26.0 A115.1,66.5 0 0 0 115.1,-26.0 L115.1,-42.0 Z"/><ellipse class="ln" cx="0" cy="-42.0" rx="115.1" ry="66.5"/><path class="ln" d="M-102.9,-150.0 L-102.9,-42.0 A102.9,59.4 0 0 0 102.9,-42.0 L102.9,-150.0 Z"/><path class="ln-soft" d="M-102.9,-70.0 A102.9,59.4 0 0 0 102.9,-70.0"/><path class="ln-soft" d="M-102.9,-122.0 A102.9,59.4 0 0 0 102.9,-122.0"/><ellipse class="ln" cx="0" cy="-150.0" rx="102.9" ry="59.4"/><g class="dut"><path class="ln" d="M-51.4,-166.0 L-51.4,-150.0 A51.4,29.7 0 0 0 51.4,-150.0 L51.4,-166.0 Z"/><ellipse class="ln" cx="0" cy="-166.0" rx="51.4" ry="29.7"/><polygon class="ln" points="124.7,-166.0 0.0,-94.0 0.0,-106.0 124.7,-178.0"/><polygon class="ln" points="-124.7,-166.0 0.0,-94.0 0.0,-106.0 -124.7,-178.0"/><polygon class="ln-top" points="0.0,-250.0 124.7,-178.0 0.0,-106.0 -124.7,-178.0"/><ellipse class="ln-soft" cx="90.1" cy="-178.0" rx="5.5" ry="3.2"/><ellipse class="ln-soft" cx="45.0" cy="-152.0" rx="5.5" ry="3.2"/><ellipse class="ln-soft" cx="0.0" cy="-126.0" rx="5.5" ry="3.2"/><ellipse class="ln-soft" cx="-45.0" cy="-152.0" rx="5.5" ry="3.2"/><ellipse class="ln-soft" cx="-90.1" cy="-178.0" rx="5.5" ry="3.2"/><ellipse class="ln-soft" cx="0.0" cy="-230.0" rx="5.5" ry="3.2"/><ellipse class="ln-soft" cx="45.0" cy="-204.0" rx="5.5" ry="3.2"/><ellipse class="ln-soft" cx="-45.0" cy="-204.0" rx="5.5" ry="3.2"/><polygon class="ln" points="48.5,-178.0 0.0,-150.0 0.0,-262.0 48.5,-290.0"/><polygon class="ln" points="-48.5,-178.0 0.0,-150.0 0.0,-262.0 -48.5,-290.0"/><polygon class="ln-top" points="0.0,-318.0 48.5,-290.0 0.0,-262.0 -48.5,-290.0"/><line class="ln" x1="0.0" y1="-150.0" x2="0.0" y2="-156.0"/><line class="ln" x1="48.5" y1="-178.0" x2="48.5" y2="-184.0"/><line class="ln" x1="-48.5" y1="-178.0" x2="-48.5" y2="-184.0"/><polyline class="ln-soft" points="48.5,-234.0 0.0,-206.0 -48.5,-234.0"/><polygon class="cell" points="44.2,-181.5 26.8,-171.5 26.8,-216.5 44.2,-226.5"/><polygon class="cell" points="44.2,-236.5 26.8,-226.5 26.8,-271.5 44.2,-281.5"/><polygon class="cell" points="21.7,-168.5 4.3,-158.5 4.3,-203.5 21.7,-213.5"/><polygon class="cell" points="21.7,-223.5 4.3,-213.5 4.3,-258.5 21.7,-268.5"/><polygon class="cell" points="-44.2,-181.5 -26.8,-171.5 -26.8,-216.5 -44.2,-226.5"/><polygon class="cell" points="-44.2,-236.5 -26.8,-226.5 -26.8,-271.5 -44.2,-281.5"/><polygon class="cell" points="-21.7,-168.5 -4.3,-158.5 -4.3,-203.5 -21.7,-213.5"/><polygon class="cell" points="-21.7,-223.5 -4.3,-213.5 -4.3,-258.5 -21.7,-268.5"/><line class="ln" x1="0.0" y1="-280.0" x2="26.0" y2="-314.0"/><polygon class="ln" points="36.4,-213.0 26.0,-207.0 26.0,-219.0 36.4,-225.0"/><polygon class="ln" points="19.1,-211.0 26.0,-207.0 26.0,-219.0 19.1,-223.0"/><polygon class="ln" points="29.4,-229.0 36.4,-225.0 26.0,-219.0 19.1,-223.0"/></g><path class="ln-soft cable" d="M31.2,-216.0 C81.2,-206.0 100.0,-254.0 150.0,-284.0"/><path class="arc arc-0" d="M-138.7,-184.0 q-6,12 0,24"/><path class="arc arc-0" d="M138.7,-184.0 q6,12 0,24"/><path class="arc arc-1" d="M-150.7,-184.0 q-6,12 0,24"/><path class="arc arc-1" d="M150.7,-184.0 q6,12 0,24"/><path class="arc arc-2" d="M-162.7,-184.0 q-6,12 0,24"/><path class="arc arc-2" d="M162.7,-184.0 q6,12 0,24"/><g class="axis"><line class="ln-soft" x1="-240.5" y1="-150" x2="-240.5" y2="-250"/><polyline class="ln-soft" points="-245.5,-243 -240.5,-250 -235.5,-243"/><polyline class="ln-soft" points="-245.5,-157 -240.5,-150 -235.5,-157"/><text class="lbl" x="-244.5" y="-262">Z</text></g><g class="panel"><rect class="ln" x="150" y="-360" width="170" height="96"/><line class="ln-soft" x1="150" y1="-338" x2="320" y2="-338"/><text class="lbl" x="162" y="-345">ACCEL Z</text><rect class="live-dot" x="276" y="-352" width="6" height="6"/><text class="lbl" x="286" y="-345">LIVE</text><polyline class="wave" points="164.0,-302.0 166.4,-305.3 168.7,-305.0 171.1,-303.4 173.5,-303.4 175.8,-303.4 178.2,-300.6 180.6,-297.7 182.9,-298.6 185.3,-301.7 187.7,-302.9 190.0,-302.7 192.4,-304.0 194.8,-305.9 197.1,-304.6 199.5,-300.7 201.9,-298.9 204.2,-300.0 206.6,-300.5 209.0,-299.7 211.3,-301.0 213.7,-304.6 216.1,-306.3 218.4,-304.2 220.8,-302.0 223.2,-301.9 225.5,-301.4 227.9,-298.9 230.3,-297.8 232.6,-300.6 235.0,-303.9 237.4,-304.3 239.7,-303.5 242.1,-304.3 244.5,-304.8 246.8,-302.0 249.2,-298.4 251.6,-298.4 253.9,-306.0 256.3,-296.8 258.7,-298.7 261.0,-312.9 263.4,-296.7 265.8,-307.5 268.1,-302.2 270.5,-300.2 272.9,-300.6 275.2,-300.2 277.6,-298.7 280.0,-299.6 282.3,-303.4 284.7,-305.7 287.1,-304.5 289.4,-303.1 291.8,-303.4 294.2,-302.7 296.5,-299.5 298.9,-297.5 301.3,-299.5 303.6,-302.5 306.0,-303.0"/><line class="flag" x1="258.4" y1="-332" x2="258.4" y2="-272"/><rect class="flag-box" x="254.4" y="-334" width="8" height="8"/></g>
-          </svg>
         </div>
       </div>
     </section>
